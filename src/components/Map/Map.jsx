@@ -3,17 +3,21 @@ import GoogleMapReact from "google-map-react";
 
 import useStyles from "./styles.js";
 
-const Map = () => {
+const Map = ({ setBounds, setCoords, coords }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
-        defaultCenter={{ lat: 0, lng: 0 }}
-        center={{ lat: 51, lng: 0 }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
+        defaultCenter={coords}
+        center={coords}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
+        onChange={(e) => {
+          setCoords({ lat: e.center.lat, lng: e.center.lng });
+          setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
+        }}
       ></GoogleMapReact>
     </div>
   );
