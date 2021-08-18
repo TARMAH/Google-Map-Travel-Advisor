@@ -11,7 +11,7 @@ import { Grid } from "@material-ui/core";
 export default function App() {
   const [places, setPlaces] = useState([]);
 
-  const [coords, setCoords] = useState({ lat: 51, lng: 0 });
+  const [coords, setCoords] = useState({});
   const [bounds, setBounds] = useState({});
 
   useEffect(() => {
@@ -20,6 +20,7 @@ export default function App() {
         setCoords({ lat: latitude, lng: longitude });
       }
     );
+    console.log(navigator.geolocation.getCurrentPosition);
   }, []);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function App() {
       <Header />
       <Grid container spacing={3} style={{ width: "100%" }}>
         <Grid item xs={12} md={4}>
-          <List />
+          <List places={places} />
         </Grid>
         <Grid item xs={12} md={8} style={{}}>
           <Map setBounds={setBounds} setCoords={setCoords} coords={coords} />
