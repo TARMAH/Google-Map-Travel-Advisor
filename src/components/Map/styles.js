@@ -4,5 +4,25 @@ export default makeStyles(() => ({
   mapContainer: {
     height: "100vh",
     width: "100%"
+  },
+  markerContainer: {
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+    zIndex: 1,
+    "&:hover": { zIndex: 2 }
+  },
+  paper: {
+    padding: "10px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100px"
+  },
+  pointer: {
+    cursor: "pointer"
+  },
+  locationIcon: {
+    fill: "black",
+    fontSize: 50
   }
 }));
