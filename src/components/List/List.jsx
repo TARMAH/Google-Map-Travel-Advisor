@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef, useRef } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import {
   Typography,
   InputLabel,
@@ -42,7 +42,6 @@ const List = ({
         </div>
       ) : (
         <>
-          {" "}
           <FormControl className={classes.formControl}>
             <InputLabel id="type">Type</InputLabel>
             <Select

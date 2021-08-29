@@ -14,8 +14,7 @@ export const getPlacesData = async (type, sw, ne) => {
           tr_latitude: ne.lat
         },
         headers: {
-          "x-rapidapi-key":
-            "42c5618ed6msh27c067d097c019fp1cbf85jsn97f3c9a1cb16",
+          "x-rapidapi-key": process.env.REACT_APP_RAPID_API_TRAVEL_API_KEY,
           "x-rapidapi-host": "travel-advisor.p.rapidapi.com"
         }
       }
